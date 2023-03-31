@@ -1,3 +1,32 @@
+let gameDisplay = document.querySelector("p#gameDisplay");
+gameDisplay.innerHTML = "Lets play rock paper scissors!";
+let scores = [0,0]; // 0 - player, 1 - computer
+
+function selectionMade() {
+    let selection = this.id;
+
+    let mapping = ["rock", "paper", "scissors"];
+    let computerSelection = mapping[Math.floor(Math.random() * 3)];
+
+    let winner = playRound(selection, computerSelection);
+
+    if(winner == "player")
+        scores[0]++;
+    
+    if(winner == "computer")
+        scores[1]++;
+
+    gameState(winner);
+}
+
+const controls = document.querySelectorAll("div.control");
+console.log(controls);
+controls.forEach(div => div.addEventListener('click', selectionMade, {
+    capture: false,
+    once: false
+}));
+
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         return "neither";
@@ -16,34 +45,17 @@ function playRound(playerSelection, computerSelection) {
     return "computer";
 }
 
-function game() {
-    console.log("Lets play rock paper scissors!");
-    var rounds = 5;
+function gameState(winner) {
 
-    const valid = ["rock", "paper", "scissors", '0', '1', '2'];
+    gameDisplay.innerHTML = "The winner of this round was: " + winner;
 
-    for(let round = 0; round < rounds; round++) {
+    if(scores[0] == 5) {
+        scores = [0,0];
+        gameDisplay.innerHTML = "Player wins! Scores reset.";
+    }
 
-        var playerSelection = "";
-
-        while(!valid.includes(playerSelection)) {
-
-            var promptText = "Please enter a valid selection:\n(0) rock\n(1) paper\n(2) scissors";
-            playerSelection = prompt(promptText, "Number or word here");
-        }
-
-        var computerSelection = Math.floor(Math.random() * 3);
-
-        // Format player selection
-        playerSelection = valid[valid.indexOf(playerSelection) % 3];
-
-        // Format computer selection
-        computerSelection = valid[computerSelection];
-
-        var winner = playRound(playerSelection, computerSelection);
-
-        console.log("Player picked " + playerSelection + " and computer picked " + computerSelection + ". The winner was " + winner + ".");
+    if(scores[1] == 5) {
+        scores = [0,0];
+        gameDisplay.innerHTML = "Computer wins! Scores reset.";
     }
 }
-
-game();

@@ -1,6 +1,58 @@
 <!DOCTYPE html>
+
 <head>
 </head>
 <html lang="en">
-<script src="rps.js"></script>
+
+<style>
+    * {
+        border-radius: 2px;
+        border-color: red;
+    }
+    
+    html {
+        box-sizing: border-box;
+    }
+
+    .control :nth-child(1) {
+        background: coral;
+    }
+
+    .control {
+        background: thistle;
+        width: 10%;
+        height: 10%;
+        display: inline-block
+    }
+
+    .control > p {
+        width: fit-content;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <h1>
+        ROCK PAPER SCISSORS APP
+    </h1>
+    <div id="container">
+        <div class="display"></div>
+            <p id="gameDisplay">Let's play!</p>
+        <div class="controls">
+            <div class="control" id="rock">
+                <p>Rock</p>
+            </div>
+            <div class="control" id="paper">
+                <p>Paper</p>
+            </div>
+            <div class="control" id="scissors">
+                <p>Scissors</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="rps.js">
+
+</script>
+
 </html>
