@@ -1,54 +1,73 @@
 <!DOCTYPE html>
-
-<head>
-</head>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <title>RPS</title>
+</head>
 
 <style>
-    * {
-        border-radius: 2px;
-        border-color: red;
-    }
-    
     html {
         box-sizing: border-box;
-    }
-
-    .control :nth-child(1) {
-        background: coral;
+        text-align: center;
+        font-family: monospace;
     }
 
     .control {
         background: thistle;
         width: 10%;
-        height: 10%;
-        display: inline-block
-    }
-
-    .control > p {
-        width: fit-content;
+        display: inline-block;
         text-align: center;
     }
+
+    .controls > div.control:hover{
+        background-color: coral;
+    }
+
+    #reset:hover {
+        background-color: coral;
+    }
+
 </style>
 
 <body>
     <h1>
-        ROCK PAPER SCISSORS APP
+        👾 ROCK PAPER SCISSORS GAME 👾
     </h1>
     <div id="container">
-        <div class="display"></div>
             <p id="gameDisplay">Let's play!</p>
         <div class="controls">
+            <p>You</p>
             <div class="control" id="rock">
                 <p>Rock</p>
+                <img src="images/rock.png">
             </div>
             <div class="control" id="paper">
                 <p>Paper</p>
+                <img src="images/paper.png">
             </div>
             <div class="control" id="scissors">
                 <p>Scissors</p>
+                <img src="images/cut.png">
             </div>
         </div>
+        <p>Computer</p>
+        <div class="control" id="compRock">
+            <p>Rock</p>
+            <img src="images/rock.png">
+        </div>
+        <div class="control" id="compPaper">
+            <p>Paper</p>
+            <img src="images/paper.png">
+        </div>
+        <div class="control" id="compScissors">
+            <p>Scissors</p>
+            <img src="images/cut.png">
+        </div>
+        <p id="gameScore"></p>
+        <div class="control" id="reset">Reset</div>
     </div>
 </body>
 <script src="rps.js">
