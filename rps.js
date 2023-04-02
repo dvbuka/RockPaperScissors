@@ -48,6 +48,7 @@ document.getElementById("reset").onclick = () => {
     scores = [0, 0];
     gameScore.innerHTML = "Score: 0 - 0";
     gameDisplay.innerHTML = "Lets play rock paper scissors!";
+    computerAnimate();
 }
 
 function playRound(playerSelection, computerSelection) {
