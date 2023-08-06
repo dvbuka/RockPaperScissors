@@ -12,12 +12,18 @@ function computerAnimate(selection) {
     let scissors = document.getElementById("compScissors");
     scissors.style.backgroundColor = "thistle";
 
-    if (selection == "rock")
-        rock.style.backgroundColor = "coral";
-    if (selection == "paper")
-        paper.style.backgroundColor = "coral";
-    if (selection == "scissors")
-        scissors.style.backgroundColor = "coral";
+    if (selection == "rock") {
+        rock.classList.add("fadeAnimation");
+        setTimeout(function(){rock.classList.remove("fadeAnimation");}, 4000);
+    }
+    if (selection == "paper") {
+    paper.classList.add("fadeAnimation");
+    setTimeout(function(){paper.classList.remove("fadeAnimation");}, 4000);
+}
+    if (selection == "scissors") {
+        scissors.classList.add("fadeAnimation");
+        setTimeout(function(){scissors.classList.remove("fadeAnimation");}, 4000);
+    }
 }
 
 function selectionMade() {

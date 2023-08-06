@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="images/favicon.png" />
     <title>RPS</title>
 </head>
 
 <style>
-    html {
+    * {
         box-sizing: border-box;
         text-align: center;
         font-family: monospace;
+        font-size: 16px;
+        border-radius: 10px;
     }
 
     .control {
@@ -20,16 +23,33 @@
         width: 10%;
         display: inline-block;
         text-align: center;
+        padding: 10px;
+        animation-duration: 1s;
     }
 
-    .controls > div.control:hover{
+    .controls>div.control:hover {
         background-color: coral;
     }
+
+
 
     #reset:hover {
         background-color: coral;
     }
 
+    .fadeAnimation {
+        animation-name: change-color;
+    }
+
+    @keyframes change-color {
+        from {
+            background-color: coral;
+        }
+
+        to {
+            background-color: thistle;
+        }
+    }
 </style>
 
 <body>
@@ -37,7 +57,7 @@
         👾 ROCK PAPER SCISSORS GAME 👾
     </h1>
     <div id="container">
-            <p id="gameDisplay">Let's play!</p>
+        <p id="gameDisplay">Let's play!</p>
         <div class="controls">
             <p>You</p>
             <div class="control" id="rock">
